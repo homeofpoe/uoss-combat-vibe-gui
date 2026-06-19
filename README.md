@@ -59,3 +59,6 @@ The summary is useful, but not perfect. Keep these in mind:
 - non-kill fights may finalize as interrupted, lost target, or ended
 - if the game reports a combined multi-hit action as one damage line, that
 	combined value is what the summary sees
+
+# Screenshot
+![Example screenshot](https://github.com/homeofpoe/uoss-combat-vibe-gui/blob/main/Screenshot%20from%202026-06-19%2011-29-29.png)
