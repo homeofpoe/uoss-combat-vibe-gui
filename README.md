@@ -4,8 +4,11 @@ CombatUI is a floating combat status panel for Mudlet, packaged for Muddler.
 The default package ships the runtime only: core UI, prompt parser, combat-event
 handlers, bootstrap, and the trigger objects that wire them together.
 
-The supported install path is the generated `.mpackage`. The old manual
-script-by-script install path has been retired.
+Import `.mpackage` into Mudlet.
+
+This package was guided by myself and primarily vibe coded, with direction from me
+and some code from me.  This has not been thoroughly bug tested and is used as a 
+simple usable accessibility option.
 
 ## Features
 
