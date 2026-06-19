@@ -17,38 +17,6 @@ script-by-script install path has been retired.
 - Collapsible buffs and debuffs sections
 - Saved panel position and collapsed state
 
-## Package Layout
-
-The repository now contains two Muddler packages:
-
-- `./` builds the default `CombatUI` package.
-- `optional/debug/` builds the optional `CombatUI_Debug` add-on package.
-
-The default package excludes debug aliases and test helpers so the shipped runtime
-stays as small and stable as possible.
-
-## Runtime Structure
-
-The default package preserves the current runtime split:
-
-- `CombatUI Core` provides the UI engine and public API.
-- `CombatUI Prompt Handler` parses the prompt line and calls `updateCombatUI()`.
-- `CombatUI Event Handlers` handles attack, damage, death, reward, and heal lines.
-- `CombatUI Bootstrap` initializes the window after all runtime functions exist.
-
-The optional debug package adds the following developer conveniences:
-
-- `combattest`
-- `combatdebug`
-- `combatecho`
-
-## Alternate Integration Mode
-
-`examples/CombatUI_Combat_Trigger.lua` remains a reference implementation for
-MUDs that emit a single combined combat-status line instead of the prompt format
-used by the default package. It is not shipped as an active trigger in the main
-package.
-
 ## Unofficial Squaresoft MUD Prompt Setup
 
 For Unofficial Squaresoft MUD, the default package expects the game prompt to be
@@ -62,21 +30,6 @@ D=$$tok_debuffs_short$$
 
 Without that prompt format, the main `UI Prompt` trigger will not receive the
 structured data that CombatUI expects.
-
-## Validation Inputs
-
-The `validation/` directory contains captured combat output used to verify the
-prompt and event patterns during package testing.
-
-## Release Notes
-
-Current packaged release changes:
-
-- migrated the project to a Muddler package layout
-- made `src/` the canonical runtime source
-- retired the manual install workflow in favor of `.mpackage` import
-- documented the required `hpset` prompt for Unofficial Squaresoft MUD
-- added a per-encounter combat summary in state
 
 ## Combat Summary
 
@@ -106,8 +59,3 @@ The summary is useful, but not perfect. Keep these in mind:
 - non-kill fights may finalize as interrupted, lost target, or ended
 - if the game reports a combined multi-hit action as one damage line, that
 	combined value is what the summary sees
-
-## Build And Install
-
-See [INSTALL.md](INSTALL.md) for the Muddler build,
-package import, trigger expectations, and optional debug-package workflow.
